@@ -15,6 +15,12 @@
 
 - [x] Create an express api
 - [x] Connect to postgress db (RDS or on the same box as the API)
+- [ ] Rate limiting
+
+  - [ ] Auth route
+    - [ ] Do you use bcrypt to hash password before sending to endpoint?? workvalue 12
+  - [ ] Signup and login user
+  - [ ]
 
 **DB**
 

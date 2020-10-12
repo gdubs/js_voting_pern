@@ -68,9 +68,12 @@ app.get("/polls", async (req, res) => {
 });
 
 app.get("/polls/:id", async (req, res) => {
-  console.log(`param ${req.params.id}`);
   const poll = await executeQuery(query + ` where p.id = ${req.params.id}`);
   res.json(poll);
+});
+
+app.post("/polls/:id", async (req, res) => {
+  res.json();
 });
 
 const port = process.env.PORT || 4242;

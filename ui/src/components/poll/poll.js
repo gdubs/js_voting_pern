@@ -5,6 +5,7 @@ const url = "http://localhost:4242/polls";
 
 const Poll = () => {
   const [poll, setPoll] = useState({});
+  const [selectedOption, setSelectedOption] = useState(-1);
   const { id } = useParams();
 
   useEffect(() => {
@@ -19,9 +20,22 @@ const Poll = () => {
       });
   }, [id]);
 
+  const selectionChanged = (e) => {
+    console.log("selected something");
+  };
   const options = poll.options
     ? poll.options.map((opt) => {
-        return <li key={`${poll.id}-${opt.id}`}>{opt.name}</li>;
+        return (
+          <li key={`${poll.id}-${opt.id}`}>
+            <input
+              type="radio"
+              name={opt.id}
+              checked={poll.selected}
+              onClick={selectionChanged}
+            ></input>
+            {opt.name}
+          </li>
+        );
       })
     : null;
   return (
@@ -31,6 +45,9 @@ const Poll = () => {
       </div>
       <div>
         <ul>{options}</ul>
+      </div>
+      <div>
+        <button>Submit</button>
       </div>
     </div>
   );
