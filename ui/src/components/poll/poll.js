@@ -21,7 +21,7 @@ const Poll = () => {
   }, [id]);
 
   const selectionChanged = (e) => {
-    console.log("selected something");
+    console.log("selected something", e);
   };
   const options = poll.options
     ? poll.options.map((opt) => {
@@ -29,7 +29,7 @@ const Poll = () => {
           <li key={`${poll.id}-${opt.id}`}>
             <input
               type="radio"
-              name={opt.id}
+              name={poll.id}
               checked={poll.selected}
               onClick={selectionChanged}
             ></input>

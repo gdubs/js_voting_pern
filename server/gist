@@ -1,0 +1,13 @@
+#docker run -p 5432:5432 --name pg postgres
+docker run -p 5432:5432 --name pg -e POSTGRES_PASSWORD=test -e POSTGRES_USER=postgres postgres
+
+
+# list all containers built??
+docker ps -a
+
+# remove image afte list
+docker rm <name>
+
+# run existing
+docker start <container name>
+

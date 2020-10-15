@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import Polls from "./components/polls/polls";
 import Poll from "./components/poll/poll";
+import Login from "./components/login/login";
+import ProtectedRoute from "./components/routes/protected_route";
 
 class App extends React.Component {
   constructor() {
@@ -24,16 +26,16 @@ class App extends React.Component {
               <li>
                 <Link to="/">Home</Link>
               </li>
+              <li>
+                <Link to="/polls">My Polls</Link>
+              </li>
             </ul>
           </header>
           <main>
             <Switch>
-              <Route exact path="/polls">
-                <Polls />
-              </Route>
-              <Route path="/polls/:id">
-                <Poll />
-              </Route>
+              <Route path="/login" component={Login} />
+              <ProtectedRoute exact path="/polls" component={Polls} />
+              <ProtectedRoute path="/polls/:id" component={Poll} />
             </Switch>
           </main>
         </div>
